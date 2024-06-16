@@ -390,7 +390,7 @@ state = {
 	scale = 1,
 	radius = 0,
 }
-thumbnail = {width = 0, height = 0, disabled = false}
+thumbnail = {width = 0, height = 0, disabled = true}
 external = {} -- Properties set by external scripts
 key_binding_overwrites = {} -- Table of key_binding:mpv_command
 Elements = require('elements/Elements')
@@ -1075,6 +1075,8 @@ mp.register_script_message('thumbfast-info', function(json)
 		thumbnail.disabled = true
 		msg.error('thumbfast-info: received json didn\'t produce a table with thumbnail information')
 	else
+		-- Prevent overwriting thumbnail.disabled
+		data.disabled = thumbnail.disabled
 		thumbnail = data
 		request_render()
 	end
