@@ -164,6 +164,10 @@ function Timeline:on_global_mouse_move()
 	end
 end
 
+bind_command('toggle-thumbnails', function()
+	thumbnail.disabled = not thumbnail.disabled
+end)
+
 function Timeline:render()
 	if self.size == 0 then return end
 
