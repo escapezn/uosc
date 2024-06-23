@@ -100,6 +100,7 @@ defaults = {
 	chapter_range_patterns = 'openings:オープニング;endings:エンディング',
 	languages = 'slang,en',
 	disable_elements = '',
+	thumbnailtog = true,
 }
 options = table_copy(defaults)
 opt.read_options(options, 'uosc', function(changed_options)
@@ -390,7 +391,8 @@ state = {
 	scale = 1,
 	radius = 0,
 }
-thumbnail = {width = 0, height = 0, disabled = true}
+if options.thumbnailtog then thumbnail = {width = 0, height = 0, disabled = false}
+else thumbnail = {width = 0, height = 0, disabled = true} end
 external = {} -- Properties set by external scripts
 key_binding_overwrites = {} -- Table of key_binding:mpv_command
 Elements = require('elements/Elements')
