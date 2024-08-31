@@ -169,7 +169,6 @@ local config_defaults = {
 		audio_indicator = 0.5,
 		buffering_indicator = 0.3,
 		playlist_position = 0.8,
-		topbarctrl = 0.5,
 	},
 }
 config = {
